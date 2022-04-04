@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class FoodDto {
 
-    private String foodName;
-    private int foodPrice;
+    private String name;
+    private int price;
 
 }

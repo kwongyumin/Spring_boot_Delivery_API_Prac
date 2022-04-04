@@ -100,11 +100,19 @@ class FoodIntegrationTest {
         @Test
         @Order(1)
         @DisplayName("음식 1개 등록")
-        void test1() throws JsonProcessingException {
+        void
+        test1() throws JsonProcessingException {
             // given
             List<FoodDto> foodsRequest = new ArrayList<>();
             // 음식2 추가
             foodsRequest.add(food2);
+            /*
+                 .id(null)
+                .name("치즈 감자튀김")
+                .price(4900)
+                .build();
+
+             */
 
             String requestBody = mapper.writeValueAsString(foodsRequest);
             HttpEntity<String> request = new HttpEntity<>(requestBody, headers);
@@ -217,6 +225,15 @@ class FoodIntegrationTest {
             List<FoodDto> foodsRequest = new ArrayList<>();
             // 음식1 추가
             foodsRequest.add(food1);
+            /*
+
+             private FoodDto food1 = FoodDto.builder()
+            .id(null)
+            .name("쉑버거 더블")
+            .price(10900)
+            .build();
+
+             */
 
             String requestBody = mapper.writeValueAsString(foodsRequest);
             HttpEntity<String> request = new HttpEntity<>(requestBody, headers);

@@ -19,13 +19,13 @@ public class Food {
     //음식 pk
 
     @Column(nullable = false)
-    private String foodName;
+    private String name;
 
     @Column(nullable = false)
-    private int foodPrice;
+    private int price;
 
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name="restaurant_Id",nullable = false)
     private Restaurant restaurant;
 
