@@ -22,20 +22,25 @@ public class Orders{
     private Long id;
 
     //레스토랑마다 주문이 있을거니깐 ,
+    @Column
+    private String restaurantName;
+
+
     @ManyToOne
     @JoinColumn(nullable = false)
     private Restaurant restaurant;
 
     //해당모든 주문들이 들어와야한다.
-    @OneToMany(mappedBy = "orders",cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="orders_id")
     private List<OrderItem> OrderItems;
 
 
     //배달료가 있을거고
-    @Column(nullable = false)
+    @Column
     private int deliveryFee;
     //총가격이 있을거고 ( + 배달료)
-    @Column(nullable = false)
+    @Column
     private int totalPrice;
 
 
